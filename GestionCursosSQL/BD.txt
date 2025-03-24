@@ -1,0 +1,28 @@
+DROP DATABASE IF EXISTS gestioncurso;
+CREATE DATABASE gestioncurso CHARACTER SET utf8mb4;
+USE gestioncurso;
+
+CREATE TABLE Rol (
+    id BIGINT PRIMARY KEY,
+    nombre_rol VARCHAR(200) NOT NULL UNIQUE,
+    descripcion VARCHAR(200)
+);
+
+CREATE TABLE Usuario (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(20) NOT NULL,
+    id_rol BIGINT,
+    FOREIGN KEY(id_rol) REFERENCES Rol(id) ON DELETE RESTRICT
+);
+
+INSERT INTO Rol (id, nombre_rol, descripcion) VALUES
+(0, 'ADMIN', 'Usuario con todos los permisos'),
+(1, 'ALUMNO', 'Usuario normal');
+
+INSERT INTO Usuario (id, email, password, id_Rol) VALUES
+(1, 'admin@gmail.com', '1234', 0),
+(2, 'alumno1@example.com', '1234', 1),
+(3, 'alumno2@example.com', '1234', 1),
+(4, 'alumno3@example.com', '1234', 1),
+(5, 'alumno4@example.com', '1234', 1);
