@@ -19,7 +19,7 @@ public class UsuarioServicesImpl implements UsuarioServices {
 			throw new IllegalStateException("Para crear un usuario el id tiene que ser nulo.");
 		}
 		
-		if(usuarioRepository.findByEmail(usuario.getEmail()) == null) {
+		if(usuarioRepository.findByEmail(usuario.getEmail()) != null) {
 			throw new IllegalStateException("El email ya existe porfavor introduzca otro.");
 		}
 		
