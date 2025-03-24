@@ -1,9 +1,12 @@
 package com.agora.jesus.gestionformacion.business.services.impl;
 
+import org.springframework.stereotype.Service;
+
 import com.agora.jesus.gestionformacion.business.model.Usuario;
 import com.agora.jesus.gestionformacion.business.services.UsuarioServices;
 import com.agora.jesus.gestionformacion.integration.UsuarioRepository;
 
+@Service
 public class UsuarioServicesImpl implements UsuarioServices {
 	
 	UsuarioRepository usuarioRepository;
