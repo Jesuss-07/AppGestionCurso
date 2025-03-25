@@ -1,5 +1,8 @@
 package com.agora.jesus.gestionformacion.business.services.impl;
 
+import java.util.NoSuchElementException;
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
 import com.agora.jesus.gestionformacion.business.model.Usuario;
@@ -32,6 +35,16 @@ public class UsuarioServicesImpl implements UsuarioServices {
 		
 	}
 
-	
+	@Override
+	public Optional<Usuario> login(String email, String password) {
+		
+		Usuario user = usuarioRepository.findByEmailAndPassword(email, password);
+		
+		if(user == null) {
+			throw new NoSuchElementException("El usuario no existe");
+		}
+		
+		return Optional.ofNullable(user);
+	}
 	
 }
