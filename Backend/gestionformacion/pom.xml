@@ -56,6 +56,14 @@
 			<optional>true</optional>
 		</dependency>
 		
+		<!-- DozzerMapper -->
+		
+		<dependency>
+		    <groupId>net.sf.dozer</groupId>
+		    <artifactId>dozer</artifactId>
+		    <version>5.5.1</version>
+		</dependency>
+		
 		<!-- Spring Security -->
 		
 		<dependency>
