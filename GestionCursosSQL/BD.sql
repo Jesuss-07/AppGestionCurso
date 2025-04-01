@@ -29,7 +29,7 @@ CREATE TABLE Curso (
 );
 
 CREATE TABLE Curso_Usuario (
-    id_usuario BIGINT NOT NULL,
+    id_alumno BIGINT NOT NULL,
     id_curso BIGINT NOT NULL,
     PRIMARY KEY (id_usuario, id_curso),
     FOREIGN KEY(id_usuario) REFERENCES Usuario(id) ON DELETE CASCADE,
