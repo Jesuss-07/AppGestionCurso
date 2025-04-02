@@ -28,8 +28,25 @@ CREATE TABLE Curso (
     FOREIGN KEY(id_profesor) REFERENCES Usuario(id) ON DELETE RESTRICT
 );
 
+CREATE TABLE Tarea (
+	id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id_curso BIGINT,
+    fecha_limite DATE,
+    archivo BLOB,
+    FOREIGN KEY (id_curso) REFERENCES Curso(id) ON DELETE CASCADE
+);
+
+CREATE TABLE Nota (
+	id_usuario BIGINT NOT NULL,
+    id_tarea BIGINT NOT NULL,
+	PRIMARY KEY (id_usuario, id_tarea),
+    nota DECIMAL(3,2) CHECK (nota >= 0 AND nota <=10),
+    FOREIGN KEY(id_usuario) REFERENCES Usuario(id) ON DELETE CASCADE,
+    FOREIGN KEY(id_tarea) REFERENCES Tarea(id) ON DELETE CASCADE
+);
+
 CREATE TABLE Curso_Usuario (
-    id_alumno BIGINT NOT NULL,
+    id_usuario BIGINT NOT NULL,
     id_curso BIGINT NOT NULL,
     PRIMARY KEY (id_usuario, id_curso),
     FOREIGN KEY(id_usuario) REFERENCES Usuario(id) ON DELETE CASCADE,
