@@ -7,6 +7,7 @@ import org.dozer.DozerBeanMapper;
 import org.springframework.stereotype.Service;
 
 import com.agora.jesus.gestionformacion.business.model.Curso;
+import com.agora.jesus.gestionformacion.business.model.Usuario;
 import com.agora.jesus.gestionformacion.business.services.CursoService;
 import com.agora.jesus.gestionformacion.repository.CursoRepository;
 
@@ -85,6 +86,14 @@ public class CursoServiceImpl implements CursoService{
 		
 		cursoRepository.save(curso);
 		
+	}
+
+	@Override
+	public Optional<Curso> getByInscrito(Usuario usuarioActual) {
+		return cursoRepository.findAll().stream()
+				        .filter(curso -> curso.getUsuarios().stream()
+				                .anyMatch(u -> u.equals(usuarioActual))
+				        ).findFirst();
 	}
 
 }
