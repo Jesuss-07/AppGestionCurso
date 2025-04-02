@@ -31,6 +31,7 @@ CREATE TABLE Curso (
 CREATE TABLE Tarea (
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
     id_curso BIGINT,
+    nombre VARCHAR(100),
     fecha_limite DATE,
     archivo BLOB,
     FOREIGN KEY (id_curso) REFERENCES Curso(id) ON DELETE CASCADE
