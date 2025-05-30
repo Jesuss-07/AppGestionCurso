@@ -13,16 +13,16 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.agora.jesus.gestionformacion.business.model.Usuario;
-import com.agora.jesus.gestionformacion.business.services.UsuarioServices;
+import com.agora.jesus.gestionformacion.business.services.UsuarioService;
 import com.agora.jesus.gestionformacion.presentation.controller.PresentationException;
 
 @RestController
 @RequestMapping("/rest/user")
 public class UsuarioController {
 	
-	private UsuarioServices usuarioServices;
+	private UsuarioService usuarioServices;
 	
-	public UsuarioController(UsuarioServices usuarioServices) {
+	public UsuarioController(UsuarioService usuarioServices) {
 		this.usuarioServices=usuarioServices;
 	}
 	
