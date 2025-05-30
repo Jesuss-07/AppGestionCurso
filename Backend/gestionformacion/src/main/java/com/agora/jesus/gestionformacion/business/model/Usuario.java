@@ -38,4 +38,6 @@ public class Usuario {
 	@JoinColumn(name = "id_rol")
 	private Rol rol;
 	
+	private Boolean habilitado;
+	
 }

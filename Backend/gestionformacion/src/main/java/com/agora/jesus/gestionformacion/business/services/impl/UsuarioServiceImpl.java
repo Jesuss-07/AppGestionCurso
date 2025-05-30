@@ -3,18 +3,20 @@ package com.agora.jesus.gestionformacion.business.services.impl;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.agora.jesus.gestionformacion.business.model.Usuario;
-import com.agora.jesus.gestionformacion.business.services.UsuarioServices;
-import com.agora.jesus.gestionformacion.integration.UsuarioRepository;
+import com.agora.jesus.gestionformacion.business.services.UsuarioService;
+import com.agora.jesus.gestionformacion.repository.UsuarioRepository;
 
 @Service
-public class UsuarioServicesImpl implements UsuarioServices {
+public class UsuarioServiceImpl implements UsuarioService {
 	
-	UsuarioRepository usuarioRepository;
+	private UsuarioRepository usuarioRepository;
+	private PasswordEncoder passwordEncoder;
 
-	public UsuarioServicesImpl(UsuarioRepository usuarioRepository) {
+	public UsuarioServiceImpl(UsuarioRepository usuarioRepository) {
 		this.usuarioRepository = usuarioRepository;
 	}
 
@@ -28,7 +30,7 @@ public class UsuarioServicesImpl implements UsuarioServices {
 		if(usuarioRepository.findByEmail(usuario.getEmail()) != null) {
 			throw new IllegalStateException("El email ya existe porfavor introduzca otro.");
 		}
-		
+		usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
 		Usuario user = usuarioRepository.save(usuario);
 		
 		return user.getId();

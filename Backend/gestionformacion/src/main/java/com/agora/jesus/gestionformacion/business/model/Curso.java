@@ -44,6 +44,8 @@ public class Curso {
 	    inverseJoinColumns = @JoinColumn(name = "id_usuario"))
 	private List<Usuario> usuarios;
 	
+	private List<Tarea> tareas;
+	
 	@Column(name = "numero_horas")
 	private Integer numeroHoras;
 	

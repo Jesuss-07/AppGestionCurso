@@ -1,6 +1,6 @@
-package com.agora.jesus.gestionformacion.business.model;
+package com.agora.jesus.gestionformacion.business.modelDTO;
 
-import java.util.List;
+import java.sql.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,8 +13,12 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Alumno extends Usuario{
+public class TareaDTO {
 
-	private List<Double> nota;
+	private Long idTarea;
+	
+	private String nombreTarea;
+	
+	private Date fechaLimite;
 	
 }

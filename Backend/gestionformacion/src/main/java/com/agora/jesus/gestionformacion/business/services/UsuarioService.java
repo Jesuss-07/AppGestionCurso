@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import com.agora.jesus.gestionformacion.business.model.Usuario;
 
-public interface UsuarioServices {
+public interface UsuarioService {
 	
 	Long registro(Usuario usuario);
 	

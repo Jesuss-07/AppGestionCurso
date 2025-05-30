@@ -1,6 +1,5 @@
 package com.agora.jesus.gestionformacion.business.model;
 
-import java.sql.Blob;
 import java.sql.Date;
 
 import jakarta.persistence.Entity;
@@ -26,7 +25,8 @@ public class Tarea {
 	
 	private Long idCurso;
 	private String nombre;
+	private String descripcion;
 	private Date fechaLimite;
-	private Blob archivo;
+	private String archivo;
 	
 }
