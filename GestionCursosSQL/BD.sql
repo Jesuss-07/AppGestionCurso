@@ -32,18 +32,10 @@ CREATE TABLE Tarea (
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
     id_curso BIGINT,
     nombre VARCHAR(100),
+    descripcion VARCHAR(500),
     fecha_limite DATE,
-    archivo BLOB,
+    archivo VARCHAR(255),
     FOREIGN KEY (id_curso) REFERENCES Curso(id) ON DELETE CASCADE
-);
-
-CREATE TABLE Nota (
-	id_usuario BIGINT NOT NULL,
-    id_tarea BIGINT NOT NULL,
-	PRIMARY KEY (id_usuario, id_tarea),
-    nota DECIMAL(3,2) CHECK (nota >= 0 AND nota <=10),
-    FOREIGN KEY(id_usuario) REFERENCES Usuario(id) ON DELETE CASCADE,
-    FOREIGN KEY(id_tarea) REFERENCES Tarea(id) ON DELETE CASCADE
 );
 
 CREATE TABLE Curso_Usuario (
@@ -59,14 +51,13 @@ INSERT INTO Rol (id, nombre_rol, descripcion) VALUES
 (1, 'ALUMNO', 'Usuario normal'),
 (2, 'PROFESOR', 'Profesor');
 
-INSERT INTO Usuario (id, nombre, email, password, id_Rol) VALUES
+INSERT INTO Usuario (id, nombre, email, password, id_rol) VALUES
 (1, 'Jesus', 'admin@gmail.com', '1234', 0),
 (2, 'Pablo', 'alumno1@example.com', '1234', 1),
 (3, 'Roberta', 'alumno2@example.com', '1234', 1),
 (4, 'Cristina', 'alumno3@example.com', '1234', 1),
 (5, 'Paola', 'alumno4@example.com', '1234', 1),
 (6, 'Paula', 'profesor1@example.com', '1234', 2);
-
 
 INSERT INTO Curso (id, id_profesor, nombre, descripcion, numero_horas, habilitado, privado) VALUES
 (1, 6, 'Curso de Angular', 'Curso de introducción a Angular', 200, true, false),
