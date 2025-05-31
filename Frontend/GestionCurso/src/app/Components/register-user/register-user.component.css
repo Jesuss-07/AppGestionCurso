@@ -1,0 +1,56 @@
+.register-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #333;
+}
+
+input, p-password {
+  width: 100%;
+}
+
+.password-rules {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.password-rules span {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  background: #f3f3f3;
+  border-radius: 4px;
+  color: #666;
+}
+
+.password-rules .rule-valid {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.error {
+  color: #f44336;
+  font-size: 0.75rem;
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 1rem;
+}
